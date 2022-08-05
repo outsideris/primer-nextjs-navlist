@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import {useRouter} from 'next/router'
+import Link from 'next/link'
 import { NavList } from '@primer/react'
+import styles from '../styles/Home.module.css'
+
 
 export default function Home() {
   return (
@@ -18,11 +21,17 @@ export default function Home() {
         </h1>
 
         <NavList>
-          <NavList.Item href="/" aria-current="page">
-            Home
-          </NavList.Item>
-          <NavList.Item href="/about">About</NavList.Item>
-          <NavList.Item href="/contact">Contact</NavList.Item>
+          <Link href="/" passHref>
+            <NavList.Item aria-current="page">
+              Home
+            </NavList.Item>
+          </Link>
+          <Link href="/about" passHref>
+          <NavList.Item>About</NavList.Item>
+          </Link>
+          <Link href="/contact" passHref>
+            <NavList.Item>Contact</NavList.Item>
+          </Link>
         </NavList>
       </main>
 
